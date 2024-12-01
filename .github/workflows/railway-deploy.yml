@@ -30,13 +30,14 @@ jobs:
       - name: Ejecutar pruebas
         run: |
           npm install -g jest
-          node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --forceExit
+          jest --no-cache --detectOpenHandles --forceExit
         env:
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           DB_HOST: ${{ secrets.DB_HOST }}
           DB_PORT: ${{ secrets.DB_PORT }}
           DB_NAME: ${{ secrets.DB_NAME }}
+          NODE_OPTIONS: --experimental-vm-modules
 
       - name: Instalar Railway CLI
         run: npm install -g @railway/cli
