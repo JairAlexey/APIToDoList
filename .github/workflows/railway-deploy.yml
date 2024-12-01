@@ -30,7 +30,7 @@ jobs:
       - name: Ejecutar pruebas
         run: |
           npm install -g jest
-          jest --detectOpenHandles --forceExit
+          NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.js --detectOpenHandles --forceExit
         env:
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
