@@ -43,7 +43,7 @@ jobs:
         run: npm install -g @railway/cli
 
       - name: Desplegar en Railway
-        run: railway up --project f184f87c-ad95-4b13-a69f-6e9d049a26d4
+        run: railway up --service f184f87c-8d95-4b13-869f-6e9d849a26d4
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
