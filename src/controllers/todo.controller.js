@@ -4,6 +4,7 @@ export const createTodo = async (req, res) => {
     try {
         const { title, description } = req.body;
         
+        
         const newTodo = await pool.query(
             'INSERT INTO todos (title, description) VALUES ($1, $2) RETURNING *',
             [title, description]
@@ -15,6 +16,7 @@ export const createTodo = async (req, res) => {
             message: 'Tarea creada exitosamente'
         });
     } catch (error) {
+        console.error('Error al crear la tarea:', error);
         res.status(500).json({
             success: false,
             message: 'Error al crear la tarea',
