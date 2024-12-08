@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { app, server } from '../index.js'; 
+import { app, server } from '../index.js';
 
 describe('Pruebas de la API de ToDo', () => {
     afterAll(async () => {
@@ -22,4 +22,4 @@ describe('Pruebas de la API de ToDo', () => {
         expect(response.body.data.title).toBe(newTodo.title);
         expect(response.body.data.description).toBe(newTodo.description);
     });
-}); 
+});
