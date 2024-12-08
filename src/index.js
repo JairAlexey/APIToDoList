@@ -5,7 +5,7 @@ import todoRoutes from './routes/todo.routes.js';
 dotenv.config();
 
 const app = express();
-
+app.get("/", (req, res) => res.json({ message: "API de ToDoList" }));
 app.use(express.json());
 app.use('/api/todos', todoRoutes);
 
