@@ -12,6 +12,8 @@ app.use('/api/todos', todoRoutes);
 app.use('/api/health', healthRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en | http://localhost:${PORT}`);
+const server = app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
+export { app, server };
