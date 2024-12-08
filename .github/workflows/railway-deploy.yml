@@ -11,8 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      APP_URL: ${{ secrets.APP_URL }}
 
     steps:
       - name: Checkout del código
@@ -32,11 +37,6 @@ jobs:
           npm install -g jest
           jest --no-cache --detectOpenHandles --forceExit
         env:
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_NAME: ${{ secrets.DB_NAME }}
           NODE_OPTIONS: --experimental-vm-modules
 
       - name: Instalar Railway CLI
